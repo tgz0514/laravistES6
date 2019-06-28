@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tagged Template String</title>
+    <style>
+      .highlight {
+        background-color: #00adb5;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function highLight(string, ...values) {
+        const highlighted = values.map(
+          value => `<span class="highlight">${value}</span>`
+        );
+        // let str = "";
+        // string.forEach(
+        //   (string, i) => (str += `${string}${highlighted[i] || ""}`)
+        // );
+        // return str;
+        return string.reduce((previous, current, i) => `${previous}${current}${highlighted[i] || ''}`, '');
+      }
+      const user = "Mary";
+      const topic = "Learn to user markdown";
+      const sentence = highLight`${user} has commented on your topic ${topic}`;
+      document.body.innerHTML = sentence;
+    </script>
+  </body>
+</html>
