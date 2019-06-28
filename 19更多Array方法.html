@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const inventory = [
+        { name: "apples", quantity: 2 },
+        { name: "bananas", quantity: 0 },
+        { name: "cherries", quantity: 5 }
+      ];
+
+      /* .find(测试函数(element, index, array)) */
+      /* 返回符合的元素 立即停止继续执行*/
+      const bananas = inventory.find((fruit, index, array) => {
+        console.log(fruit);
+        //   console.log(index)
+        //   console.log(array)
+        if (fruit.name === "bananas") {
+          return true;
+        }
+        return false;
+      });
+      //   const bananas = inventory.find(fruit => fruit.name === "bananas");
+      console.log(bananas);
+      console.log("===".repeat(3));
+      /* .findIndex() */
+      /* 找到符合的元素的 索引 停止继续执行 */
+      const bananasIndex = inventory.findIndex((fruit, index, array) => {
+        console.log(fruit);
+        //   console.log(index)
+        //   console.log(array)
+        if (fruit.name === "bananas") {
+          return true;
+        }
+        return false;
+      });
+      console.log(bananasIndex);
+      console.log("===".repeat(3));
+
+      /* .some() */
+      /* 遍历数组 只要有符合条件的元素 就返回true */
+      const ifBananas = inventory.some(fruit => fruit.name === "bananas");
+      console.log(ifBananas);
+
+      console.log("===".repeat(3));
+      /* .every() */
+        /* 遍历数组 只有全部符合条件的元素 就返回true */
+      const ifEnough = inventory.every(fruit => fruit.quantity > 0);
+      console.log(ifEnough);
+    </script>
+  </body>
+</html>

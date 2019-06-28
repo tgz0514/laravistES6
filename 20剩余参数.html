@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 数值求和 */
+      //   function sum() {
+      //     return Array.from(arguments).reduce((prev, curr) => prev + curr, 0);
+      //   }
+      /* 使用 剩余参数(是一个真正的数组) */
+      function sum(...nums) {
+        return nums.reduce((prev, curr) => prev + curr, 0);
+      }
+      const result = sum(10, 20, 30, 40, 50, 60, 70, 80, 90);
+      console.log(result);
+      console.log("===".repeat(3));
+
+      /* 两个以上参数 有两类参数 */
+      function converResult(rate, ...values) {
+          return values.map(value => value * rate)
+      }
+      const amounts = converResult(0.618, 10, 20, 30)
+      console.log(amounts)
+      console.log("===".repeat(3));
+
+      /* 应用在变量解构 */
+      const player = ['Jerry', 18, 66, 87, 91]
+      /* 直接获取剩余所有数据 */
+      const [name, age, ...score1] = player
+      console.log(name, age, score1)
+    </script>
+  </body>
+</html>

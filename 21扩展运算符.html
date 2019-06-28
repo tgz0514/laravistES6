@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spread Operator</title>
+</head>
+<body>
+    <script>
+        /* 拼接两各数组 并在中间插入一个元素 */
+        /* 之前的方式 */
+        // const younger = ['Jerry', 'Tom', "Mary"]
+        // const older = ['Tim', 'Jelly', 'Mark']
+        // let members = []
+        // members = members.concat(younger)
+        // members.push('John')
+        // members = members.concat(older)
+        // console.log(members)
+
+        /* 使用扩展运算符 */
+        const younger = ['Jerry', 'Tom', "Mary"]
+        const older = ['Tim', 'Jelly', 'Mark']
+        const members = [...younger, 'John', ...older]
+        console.log(members)
+        /* 扩展运算符  进行深拷贝 */
+        const currentMembers = [...members]
+        console.log(currentMembers)
+        
+    </script>
+</body>
+</html>

@@ -5,12 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <style>
+      .completed {
+        -webkit-user-select: none;
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
+    <ul>
+      <li>Coding</li>
+      <li>Reading</li>
+      <li>Sleeping</li>
+    </ul>
     <script>
+      /* for-of 可用于 数组、字符串、map、arguments、nodelist */
       const fruits = ["Apple", "Orange", "Banana", "Mongo"];
       for (let [index, fruit] of fruits.entries()) {
         console.log(index, fruit);
+      }
+      /* 用于arguments */
+      function sum() {
+        /* arguments  --- object */
+        let total = 0;
+        for (let fruit of arguments) {
+          total += fruit;
+        }
+        return total;
+      }
+      const total = sum(10, 20, 30, 40, 50, 60);
+
+      /* 用于字符串 */
+      const str = "laravist";
+      for (let char of str) {
+        console.log(char);
+      }
+
+      /* 用于nodelist */
+      const lis = document.querySelectorAll("li");
+      for (let li of lis) {
+        li.addEventListener("click", function() {
+          this.classList.toggle("completed");
+        });
       }
     </script>
   </body>

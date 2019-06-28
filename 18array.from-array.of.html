@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>Coding</li>
+      <li>Reading</li>
+      <li>Sleeping</li>
+    </ul>
+    <script>
+      /* Array.from() */
+      const todos = document.querySelectorAll("li");
+      console.log(todos); // nodelist --- object 伪数组
+      const todosArr = Array.from(todos);
+      console.log(todosArr);
+      const texts = todosArr.map(todo => todo.textContent);
+      console.log(texts);
+
+      /* Array.from(伪数组, 处理函数(对每个元素执行的函数 )) */
+      const names = Array.from(todos, todo => todo.textContent);
+      console.log(names);
+
+      /* 转换arguments伪数组为真正的数组 */
+      function sum() {
+        return Array.from(arguments).reduce((prev, curr) => prev + curr, 0);
+      }
+      const sums = sum(10, 20, 30);
+      console.log(sums);
+
+      /* 转换字符串 */
+      const website = "Laravist";
+      console.log(Array.from(website));
+
+      /* Aarray.of() */
+      /* 补足new Array()的不足 */
+      const arr = Array.of(1,2,3,4)
+      console.log(arr)
+    </script>
+  </body>
+</html>
