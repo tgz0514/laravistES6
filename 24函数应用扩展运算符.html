@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 扩展为函数的参数 */
+        const oldArr = ['AAA', 'BBB', 'CCC']
+        const newArr = ['111', '222', '333' ]
+        // oldArr.push.apply(oldArr, newArr)
+        // oldArr.push(...newArr)
+        const concatArr = oldArr.concat(newArr)
+        console.log(concatArr)
+
+        const dateArr = [2019, 6, 28]
+        const time = new Date(...dateArr)
+        console.log(time)
+    </script>
+</body>
+</html>

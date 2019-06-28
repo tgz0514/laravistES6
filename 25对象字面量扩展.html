@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const name = "Jelly";
+      const age = 18;
+      const birthday = "1995-07-01";
+      /* 之前的写法 */
+      //   const player = {
+      //     name: name,
+      //     age: age,
+      //     birthday: birthday,
+      //     sleep: function() {
+      //         console.log(this.name)
+      //     }
+      //   };
+      /* 对象 属性 和 方法 简写 */
+      const player = {
+        name,
+        age,
+        birthday,
+        sleep() {
+          console.log(this.name);
+        }
+      };
+      console.log(player);
+      player.sleep();
+
+      /* 对象属性 */
+      let id = 0;
+      //   const userId = {
+      //       'user-1' : 1,
+      //       'user-2' : 2
+      //   }
+      /* 计算属性的方式 */
+      const userId = {
+        [`user-${++id}`]: id,
+        [`user-${++id}`]: id,
+        [`user-${++id}`]: id
+      };
+      console.log(userId);
+
+      const keys = ["name", "age", "birthday"];
+      const values = ["Jelly", 10, "1995-07-01"];
+      /* 仍然很麻烦 需要改index */
+      //   const laravist = {
+      //       [keys[0]] : values[0],
+      //       [keys[1]] : values[1],
+      //       [keys[2]] : values[2]
+      //   }
+      const laravist = {
+        [keys.shift()]: values.shift(),
+        [keys.shift()]: values.shift(),
+        [keys.shift()]: values.shift()
+      };
+      console.log(laravist);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const foo = Symbol();
+      const bar = Symbol();
+      console.log(foo === bar); // false
+      console.log(foo == bar); // false
+      const classRoom = {
+        [Symbol("Nina")]: [18, 66, 50],
+        [Symbol("Jack")]: [18, 66, 50],
+        [Symbol("Nina")]: [18, 66, 50]
+      };
+      /* Symbol类型 无法进行遍历 */
+      //   for(let stu in classRoom) {
+      //       console.log(stu)
+      //   }
+      /* 这里不能用classRoom.sym 因为会把sym看成字符串 相当于classRoom['sym] 而sym则是一个计算属性 */
+      const syms = Object.getOwnPropertySymbols(classRoom).map(
+        sym => classRoom[sym]
+      );
+      console.log(syms);
+    </script>
+  </body>
+</html>

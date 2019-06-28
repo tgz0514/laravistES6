@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>Coding</li>
+      <li>Reading</li>
+      <li>Sleeping</li>
+    </ul>
+    <script>
+      /* 将nodelist转换为数组 并应用map方法 */
+      const lis = document.querySelectorAll("li");
+      const liText = [...lis].map(li => li.textContent);
+      console.log(liText);
+
+      /* 将一个对象中的数组元素 扩展到岭一个数组中 */
+      const favorites = {
+        color: ["blue", "red"],
+        fruits: ["Monge", "Banana"]
+      };
+      const shopingList = ["Book", "Coffee", ...favorites.fruits];
+      console.log(shopingList);
+
+      /* 删除数组某个元素 并用扩展运算符 将其余元素整合到一个新的数组中 */
+      const todos = [
+        { id: 1, name: "Go Coding", completed: false },
+        { id: 2, name: "Reading", completed: true },
+        { id: 3, name: "Go Sleeping", completed: false },
+        { id: 4, name: "Go Shoping", completed: true }
+      ];
+      const id = 2;
+      const index = todos.findIndex(todo => todo.id === id);
+      const newArr = [...todos.slice(0, index), ...todos.slice(index + 1)];
+      console.log(newArr)
+    </script>
+  </body>
+</html>
