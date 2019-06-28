@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 1.简化代码 匿名函数 */
+      const numbers = [10, 20, 30, 40, 50];
+      const double = numbers.map(number => {
+        return number * 2;
+      });
+      console.log(double);
+      /* 2.隐式返回 */
+      const double2 = numbers.map(number => number * 2);
+      console.log(double2);
+      
+      /* 3.匿名函数 */
+      const Jerry = name => {alert(`Hello ${name}`)}
+      Jerry('Jerry')
+    </script>
+  </body>
+</html>

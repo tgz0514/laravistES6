@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        
+      const id = "370105199501012222";
+      const str = "I love JavaScript";
+      /* 1.starstWith() */
+      /* str.startsWith(searchString[, position]) */
+      /* 区分大小写 */
+      /* startsWith() 方法用来判断当前字符串是否以另外一个给定的子字符串开头，并根据判断结果返回 true 或 false。 */
+
+      /* 2.endsWith() */
+      
+      /* 同startsWith() 用法类似 */
+
+      /* 3.includes() */
+      /* includes() 方法用于判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false。 */
+      /* str.includes(searchString[, position]) */
+
+      /* 4.repeat() */
+      /* repeat() 构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本 */
+      /**
+       * str: String
+       * count: Number
+       */
+      const count = 2;
+    //   let resultString = str.repeat(count);
+
+      let resultString = ({ toString: () => "abc123", repeat: String.prototype.repeat }.repeat(2));
+    </script>
+  </body>
+</html>

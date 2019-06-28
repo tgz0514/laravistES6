@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 函数默认值 */
+      function defalut(a = 1, b = 7) {
+        // return a * b;
+        console.log(a, b);
+        console.log("= " + a * b);
+      }
+      /* 常规调用 */
+      defalut(); // 1 * 7 = 7
+      /* 只给第一个参数 */
+      defalut(2); // 2 * 7 = 14
+      /* 不给第一个参数 需传undefined */
+      defalut(undefined); // 1 * 2 = 7
+      /* 不能给第一参数传null */
+      defalut(null, 2); // 0
+    </script>
+  </body>
+</html>

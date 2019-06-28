@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .button {
+        width: 150px;
+        height: 100px;
+        background-color: hotpink;
+        border: 10px dotted palegreen;
+        color: #fff;
+        font-size: 36px;
+        transition: transform 1s;
+      }
+      .in {
+        transform: scale(2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button">Click Me</div>
+    <script>
+      /* 1.作为构造函数，一个方法需要绑定到对象 */
+      /* 此时 this 无法绑定到示例对象上 报Person is not constructer */
+      //   const Person = (name, age) => {
+      //     this.name = name;
+      //     this.age = age;
+      //   };
+      const Person = function(name, age) {
+        this.name = name;
+        this.age = age;
+      };
+      const Jerry = new Person("Jerry", 18);
+      /* 此时会报NaN 同样因为this没有绑定到对象身上 */
+      //   Person.prototype.updateAggs = () => {
+      //       this.age ++
+      //       console.log(this.age)
+      //   }
+      Person.prototype.updateAggs = function() {
+        this.age++;
+        console.log(this.age);
+      };
+      /* 2.当你需要this时 */
+      const button = document.querySelector(".button");
+      /* 此时 this 是指向window的 因为箭头函数不会执行绑定的 */
+      //   button.addEventListener("click", () => {
+      //     this.classList.add("in");
+      //     setTimeout(() => {
+      //       this.classList.remove("in");
+      //     }, 500);
+      //   });
+      button.addEventListener("click", function() {
+        this.classList.add("in");
+        /* 此时的this继承父级作用的指向 */
+        console.log(this);
+        setTimeout(() => {
+          this.classList.remove("in");
+        }, 500);
+      });
+      /* 3.需要使用arguments对象 */
+      const sum = function(argumens) {
+        return Array.from(argumens).reduce(
+          (prevSum, value) => prevSum + value,
+          0
+        );
+      };
+    </script>
+  </body>
+</html>

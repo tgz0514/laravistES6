@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 1.模板字符串可以嵌套 */
+      /* 2.${xxx} 中可以是变量 也可以是函数 或者 表达式 */
+      const Jerry = {
+        name: "Jerry",
+        date: "2017-05-07",
+        age: 10,
+        todos: [
+          { name: "Go to Store", completed: false },
+          { name: "Watch Movie", completed: true },
+          { name: "Running", completed: true }
+        ]
+      };
+      function rendar() {
+        return ` <ul>
+            ${Jerry.todos
+              .map(
+                todo => `
+                <li>
+                    ${todo.name}${todo.completed ? "完成" : "未完成"}
+                </li>`
+              )
+              .join("")}
+          </ul>`;
+      }
+      const template = `
+      <div class="pannel">
+          <div class="header">${Jerry.name} ${Jerry.age * 2}</div>
+          <div class="todos">${rendar()}</div>
+          <div class="footer">${Jerry.date}</div>
+      </div>
+        `;
+      document.body.innerHTML = template;
+    </script>
+  </body>
+</html>

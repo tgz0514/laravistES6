@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 数组解构 直接通过数据对应位置获取对应的元素 */
+      // const arr = ['one', 'two', 'three']
+      // const [one, two, three] = arr
+      // console.log(one, two, three)
+
+      /* 当对应元素为undefined时 采用回滚值 */
+      /* const arr = ['A', 'B' ,, 'D']
+        const [A, B, C = '233', D] = arr
+        console.log(A,B,C,D) */
+
+      /* 获取某位置至最后一位 中连续的元素时 可以使用Rest方式 (必须为解构数组的最后一位) */
+      /* Rest返回的是一个新数据 */
+      const arr = ['Jerry', 'Tom', 'Marry', 'Jones']
+      const [J, ...values] = arr
+      console.log(J, values)
+
+      /* 交换变量的值 */
+    //   let a = 10;
+    //   let b = 20;
+    //   [a, b] = [b, a];
+    //   console.log(a, b);
+    </script>
+  </body>
+</html>

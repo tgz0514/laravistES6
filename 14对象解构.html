@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const Tom = {
+        name: "Tom Jones",
+        age: 25,
+        family: {
+          mother: "Norah Jones",
+          father: "Richard Jones",
+          brother: "Howard Jones",
+          sister: undefined
+        }
+      };
+
+      /*  想要获取Tom这个对象的某些值  */
+
+      /* 之前的做法 */
+      /*  const name = Tom.name
+      const age = Tom.age
+      const mother = Tom.family.mother
+      const father = Tom.family.father
+      const brother = Tom.family.brother
+      console.log(name,age,mother,father,brother) */
+
+      /* 对象解构的方式 更简洁 */
+      /* 快速提取变量属性 设置默认值 重命名变量 */
+      /* key:value key为匹配模式 value为变量 */
+      //   const father = 'Jack Jones'
+      //   const { name: name, age: age } = Tom
+      //   const { father: f, mother: m, brother: b} = Tom.family
+      //   console.log(name, age, f, m ,b)
+      //   console.log(father)
+
+      /* 还可以设置回滚值 */
+      /* 只有在匹配的属性为undefined时 才会使用回滚值 null 0 '' 除外 */
+      const {
+        father: f,
+        mother: m,
+        brother: b,
+        sister: s = "Mary Jones"
+      } = Tom.family;
+      console.log(s);
+    </script>
+  </body>
+</html>

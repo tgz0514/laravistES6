@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>For of Loop</title>
+  </head>
+  <body>
+    <script>
+      const fruits = ["Apple", "Orange", "Banana", "Mongo"];
+      fruits.abc = "233";
+      Array.prototype.fruitsfunction = () => {
+        console.log(this[0]);
+      };
+      /* 1.for循环  繁琐 不够 美观 可读性不高*/
+      for (let index = 0; index < fruits.length; index++) {
+        console.log(fruits[index]);
+      }
+      console.log("===".repeat(3));
+      /* 2.forEach 不支持break continue */
+      fruits.forEach(fruit => {
+        //   if(fruit === 'Orange') {
+        //     continue
+        //   }
+        console.log(fruit);
+      });
+      console.log("===".repeat(3));
+      /* 3.for in 遍历的是属性名key 且会遍历所有可枚举属性 甚至包括原型方法 */
+      for (let fruit in fruits) {
+        //   console.log(fruit)
+        if (fruits[fruit] === "Orange") {
+          break;
+        }
+        console.log(fruits[fruit]);
+      }
+      console.log("===".repeat(3));
+      /* 4. for of  */
+      /* 语法简洁 遍历的是属性值 不会遍历所有可枚举属性及原型方法 可以break或continue*/
+      for (let fruit of fruits) {
+        if (fruit === "Orange") {
+          continue;
+        }
+        console.log(fruit);
+      }
+    </script>
+  </body>
+</html>
